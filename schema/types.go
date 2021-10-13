@@ -94,6 +94,7 @@ type Property struct {
 	Declaration string
 	Type        DataType
 	Attrs       map[string]interface{}
+	IsOutlet    bool   `json:",omitempty"`
 	Deprecated  bool   `json:",omitempty"`
 	TopicURL    string `json:",omitempty"`
 }

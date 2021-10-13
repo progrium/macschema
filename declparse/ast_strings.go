@@ -78,6 +78,9 @@ func (p PropertyDecl) String() string {
 		fmt.Fprintf(b, "(%s)", strings.Join(attrs, ", "))
 	}
 	b.WriteString(" ")
+	if p.IsOutlet {
+		b.WriteString("IBOutlet ")
+	}
 	typ := p.Type.String()
 	b.WriteString(typ)
 	if typ[len(typ)-1] != '*' {

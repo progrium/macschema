@@ -583,6 +583,23 @@ var tests = []struct {
 	},
 
 	{
+		s: `@property(strong) IBOutlet NSView *view;`,
+		n: &Statement{
+			Property: &PropertyDecl{
+				Name: "view",
+				Attrs: map[PropAttr]string{
+					PropAttrStrong: "",
+				},
+				Type: TypeInfo{
+					Name:  "NSView",
+					IsPtr: true,
+				},
+				IsOutlet: true,
+			},
+		},
+	},
+
+	{
 		s: `- (BOOL)writeObjects:(NSArray<id<NSPasteboardWriting>> *)objects;`,
 		n: &Statement{
 			Method: &MethodDecl{

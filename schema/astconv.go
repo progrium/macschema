@@ -54,8 +54,9 @@ func ArgFromAst(ai declparse.ArgInfo) Arg {
 
 func PropertyFromAst(p declparse.PropertyDecl) Property {
 	prop := Property{
-		Name: p.Name,
-		Type: DataTypeFromAst(p.Type),
+		Name:     p.Name,
+		Type:     DataTypeFromAst(p.Type),
+		IsOutlet: p.IsOutlet,
 	}
 	attrs := make(map[string]interface{})
 	for attr, val := range p.Attrs {

@@ -51,6 +51,12 @@ func parseProperty(p *Parser) (next stateFn, node Node, err error) {
 		p.tb.Unscan()
 	}
 
+	if tok, _, lit := p.tb.Scan(); tok == lexer.IDENT && lit == "IBOutlet" {
+		decl.IsOutlet = true
+	} else {
+		p.tb.Unscan()
+	}
+
 	typ, err := p.expectType(false)
 	if err != nil {
 		return nil, nil, err

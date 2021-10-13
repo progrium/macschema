@@ -33,9 +33,10 @@ type InterfaceDecl struct {
 }
 
 type PropertyDecl struct {
-	Name  string
-	Type  TypeInfo
-	Attrs map[PropAttr]string
+	Name     string
+	Type     TypeInfo
+	Attrs    map[PropAttr]string
+	IsOutlet bool
 }
 
 type FunctionDecl struct {
